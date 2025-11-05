@@ -33,7 +33,7 @@
             border-right: 1px solid #e0e0e0;
             padding: 20px;
             float: left;
-            min-height: 600px;
+            min-height: 1000px;
         }
 
         .sidebar h3 {
@@ -850,6 +850,16 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             loadData();
+            
+            // ✅ Expand all zones (or only top-level zones) on first load
+            if (expandedZones.size === 0) {
+                // Option 1: Expand all zones
+                zones.forEach(zone => expandedZones.add(zone.id));
+
+                // OR, if you only want top-level zones expanded:
+                // zones.filter(z => !z.parentId).forEach(zone => expandedZones.add(zone.id));
+            }
+            
             renderZones();
             
             // Update color preview when color changes
@@ -902,7 +912,7 @@
                         name: 'Boxing room',
                         category: '',
                         color: '#5f9ea0',
-                        parentId: null,
+                        parentId: 'zone-1',
                         relations: []
                     },
                     {
