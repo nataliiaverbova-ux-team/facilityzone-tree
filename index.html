@@ -12,48 +12,68 @@
         }
 
         body {
-
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
         }
 
-        .layout {
-            display: flex;
-            min-height: 100vh;
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
 
-        /* Sidebar */
         .sidebar {
             width: 200px;
-            background: #e8e8ed;
-            padding: 24px 0;
-            border-right: 1px solid #d2d2d7;
+            background: #fafafa;
+            border-right: 1px solid #e0e0e0;
+            padding: 20px;
+            float: left;
+            min-height: 600px;
+        }
+
+        .sidebar h3 {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
         .sidebar-item {
-            padding: 12px 24px;
+            padding: 8px 12px;
+            margin-bottom: 4px;
             cursor: pointer;
-            color: #6e6e73;
-            transition: background 0.2s;
+            border-radius: 4px;
+            font-size: 14px;
         }
 
-        .sidebar-item:first-child {
-            background: #d2d2d7;
-            color: #1d1d1f;
+        .sidebar-item.active {
+            background: #e3f2fd;
+            color: #1976d2;
             font-weight: 500;
         }
 
-        .sidebar-item:hover {
-            background: #d2d2d7;
+        .main-content {
+            margin-left: 200px;
+            padding: 30px;
         }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
 
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            padding: 32px;
-            overflow-x: auto;
+        .header-left h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
         }
 
         .breadcrumb {
@@ -62,263 +82,235 @@
             margin-bottom: 8px;
         }
 
-        .breadcrumb a {
-            color: #666;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .page-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .page-title-section {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .page-title {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .page-description {
+        .description {
             font-size: 14px;
             color: #666;
             line-height: 1.5;
+            max-width: 600px;
         }
 
-        .header-actions {
+        .header-right {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
 
         .btn {
-            padding: 10px 20px;
-            border-radius: 4px;
+            padding: 8px 16px;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: background 0.2s;
         }
 
         .btn-primary {
-            background-color: #2c3e50;
+            background: #1976d2;
             color: white;
         }
 
         .btn-primary:hover {
-            background-color: #1a252f;
+            background: #1565c0;
         }
 
         .btn-secondary {
             background: white;
-            color: #1d1d1f;
-            border: 1px solid #d2d2d7;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: #1976d2;
+            border: 1px solid #1976d2;
         }
 
         .btn-secondary:hover {
-            background: #f5f5f7;
+            background: #e3f2fd;
         }
 
-        /* Table */
-        .zones-table {
-            background-color: white;
-            border: 1px solid #d0d0d0;
+        .btn-cancel {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .btn-cancel:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-danger {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c62828;
+        }
+
+        .table-container {
+            border: 1px solid #e0e0e0;
             border-radius: 4px;
             overflow: hidden;
         }
 
         .table-header {
             display: grid;
-            grid-template-columns: 2fr 2fr 2fr 120px;
-            background-color: #f8f8f8;
-            border-bottom: 2px solid #d0d0d0;
+            grid-template-columns: 40px 1fr 200px 200px 100px 40px;
+            background: #fafafa;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 16px;
             font-weight: 600;
             font-size: 13px;
+            color: #666;
+            text-transform: uppercase;
         }
 
-        .table-header > div {
-            padding: 16px;
+        .table-header-cell {
             display: flex;
             align-items: center;
-            gap: 6px;
-        }
-
-        .info-icon {
-            width: 16px;
-            height: 16px;
-            background-color: #666;
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            cursor: pointer;
-            position: relative;
+            gap: 5px;
         }
 
         .zone-row {
             display: grid;
-            grid-template-columns: 2fr 2fr 2fr 120px;
+            grid-template-columns: 40px 1fr 200px 200px 100px 40px;
+            padding: 12px 16px;
             border-bottom: 1px solid #e0e0e0;
             align-items: center;
-            min-height: 56px;
+            transition: background 0.2s;
         }
 
-        .zone-row:last-child {
-            border-bottom: none;
+        .zone-row:hover {
+            background: #fafafa;
         }
 
-        .zone-cell {
-            padding: 16px;
+        .zone-row.level-1 {
+            padding-left: 60px;
+        }
+
+        .zone-row.level-2 {
+            padding-left: 100px;
+        }
+
+        .zone-name {
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .zone-name-cell {
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            font-size: 14px;
         }
 
         .toggle-btn {
             width: 20px;
             height: 20px;
-            background: none;
             border: none;
+            background: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #666;
-            flex-shrink: 0;
+            font-size: 16px;
         }
 
         .toggle-btn:hover {
-            background-color: #f0f0f0;
-            border-radius: 3px;
-        }
-
-        .toggle-btn.hidden {
-            visibility: hidden;
-        }
-
-        .zone-name {
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: #333;
         }
 
         .add-zone-btn {
-            width: 20px;
-            height: 20px;
-            background: none;
-            border: 1.5px solid #666;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #1976d2;
+            background: white;
+            color: #1976d2;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
-            color: #666;
-            flex-shrink: 0;
+            font-size: 18px;
+            line-height: 1;
+            transition: all 0.2s;
         }
 
         .add-zone-btn:hover {
-            background-color: #333;
-            border-color: #333;
+            background: #1976d2;
             color: white;
         }
 
-        .indent-1 { padding-left: 48px; }
-        .indent-2 { padding-left: 80px; }
+        .relations-cell {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
 
-        .relation-badge {
-            display: inline-block;
+        .badge {
             padding: 4px 8px;
-            background-color: #f0f0f0;
-            border-radius: 3px;
+            border-radius: 12px;
             font-size: 12px;
-            font-weight: 500;
+            background: #e3f2fd;
+            color: #1976d2;
+            display: inline-block;
         }
 
         .category-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 10px;
-            background-color: #fff;
-            border: 1px solid #d0d0d0;
-            border-radius: 12px;
+            padding: 4px 12px;
+            border-radius: 4px;
             font-size: 12px;
-            font-weight: 500;
+            display: inline-block;
         }
 
-        .category-dot {
-            width: 8px;
-            height: 8px;
+        .category-swimming {
+            background: #e1f5fe;
+            color: #0277bd;
+        }
+
+        .category-personal-training {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .category-parking {
+            background: #f3e5f5;
+            color: #6a1b9a;
+        }
+
+        .category-yoga {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .color-indicator {
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 1px #e0e0e0;
         }
 
-        .color-circle {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            border: 2px solid #e0e0e0;
-            flex-shrink: 0;
-        }
-
-        .menu-btn {
-            width: 32px;
-            height: 32px;
-            background: none;
+        .context-menu-btn {
+            width: 24px;
+            height: 24px;
             border: none;
+            background: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 4px;
-            font-size: 18px;
             color: #666;
+            font-size: 18px;
+            position: relative;
         }
 
-        .menu-btn:hover {
-            background-color: #f0f0f0;
-        }
-
-        /* Context Menu */
-        .context-menu {
-            position: fixed;
-            background: white;
-            border: 1px solid #d0d0d0;
+        .context-menu-btn:hover {
+            background: #f5f5f5;
             border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .context-menu {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             z-index: 1000;
-            min-width: 160px;
+            min-width: 150px;
             display: none;
         }
 
@@ -330,78 +322,72 @@
             padding: 10px 16px;
             cursor: pointer;
             font-size: 14px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .context-menu-item:last-child {
-            border-bottom: none;
+            transition: background 0.2s;
         }
 
         .context-menu-item:hover {
-            background-color: #f8f8f8;
+            background: #f5f5f5;
         }
 
         .context-menu-item.danger {
             color: #d32f2f;
         }
 
-        /* Modal/Dialog */
-        .modal-overlay {
+        .modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: none;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
             align-items: center;
             justify-content: center;
-            z-index: 2000;
         }
 
-        .modal-overlay.active {
+        .modal.active {
             display: flex;
         }
 
-        .modal {
+        .modal-content {
             background: white;
             border-radius: 8px;
             width: 90%;
-            max-width: 500px;
+            max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            position: relative;
         }
 
         .modal-header {
-            padding: 20px 24px;
+            padding: 24px;
             border-bottom: 1px solid #e0e0e0;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .modal-title {
-            font-size: 20px;
-            font-weight: 600;
+        .modal-header h2 {
+            font-size: 24px;
+            font-weight: 500;
         }
 
         .close-btn {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #666;
             width: 32px;
             height: 32px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #666;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 4px;
         }
 
         .close-btn:hover {
-            background-color: #f0f0f0;
+            color: #333;
         }
 
         .modal-body {
@@ -412,44 +398,67 @@
             margin-bottom: 20px;
         }
 
-        .form-label {
+        .form-group label {
             display: block;
             margin-bottom: 8px;
             font-size: 14px;
             font-weight: 500;
+            color: #333;
         }
 
-        .required {
+        .form-group label .required {
             color: #d32f2f;
         }
 
-        .form-input,
-        .form-select {
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 10px 12px;
-            border: 1px solid #d0d0d0;
+            border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 14px;
             font-family: inherit;
         }
 
-        .form-input:focus,
-        .form-select:focus {
+        .form-group input:focus,
+        .form-group select:focus {
             outline: none;
-            border-color: #2c3e50;
+            border-color: #1976d2;
         }
 
-        .color-picker-wrapper {
-            display: flex;
+        .info-icon {
+            display: inline-flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #666;
+            color: white;
+            font-size: 11px;
+            cursor: help;
+            margin-left: 4px;
+            position: relative;
+        }
+
+        .color-picker-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .color-preview {
+            width: 60px;
+            height: 40px;
+            border-radius: 4px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
         }
 
         .color-input {
-            width: 60px;
+            width: 60px !important;
             height: 40px;
-            border: 1px solid #d0d0d0;
-            border-radius: 4px;
+            border: none;
             cursor: pointer;
         }
 
@@ -458,36 +467,93 @@
             border-top: 1px solid #e0e0e0;
             display: flex;
             justify-content: flex-end;
-            gap: 12px;
+            gap: 10px;
         }
 
-        .btn-cancel {
-            background-color: transparent;
-            color: #666;
-            border: none;
+        .multi-select-container {
+            position: relative;
         }
 
-        .btn-cancel:hover {
-            background-color: #f0f0f0;
+        .multi-select-display {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            min-height: 42px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
-        /* Popover */
+        .multi-select-display:focus-within {
+            border-color: #1976d2;
+        }
+
+        .selected-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .remove-tag {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .multi-select-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .multi-select-dropdown.active {
+            display: block;
+        }
+
+        .multi-select-option {
+            padding: 10px 12px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .multi-select-option:hover {
+            background: #f5f5f5;
+        }
+
+        .multi-select-option.disabled {
+            color: #999;
+            cursor: not-allowed;
+        }
+
+        .multi-select-option.disabled:hover {
+            background: white;
+        }
+
         .popover {
             position: absolute;
             background: white;
-            border: 1px solid #d0d0d0;
+            border: 1px solid #e0e0e0;
             border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             padding: 16px;
-            max-width: 320px;
-            z-index: 1500;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            max-width: 300px;
             display: none;
-            font-size: 14px;
-        }
-        .popover a{
-            color: #2E5FEE;
-            display: block;
-            padding: 8px 0px;
         }
 
         .popover.active {
@@ -501,19 +567,11 @@
         }
 
         .popover-content {
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 13px;
+            line-height: 1.5;
             color: #666;
         }
 
-        .popover-image {
-            margin-top: 12px;
-            width: 100%;
-            border-radius: 4px;
-            border: 1px solid #e0e0e0;
-        }
-
-        /* Empty State */
         .empty-state {
             text-align: center;
             padding: 60px 20px;
@@ -523,85 +581,81 @@
         .empty-state-icon {
             font-size: 64px;
             margin-bottom: 16px;
-            opacity: 0.3;
         }
 
-        .empty-state-title {
+        .empty-state-text {
             font-size: 18px;
-            font-weight: 600;
             margin-bottom: 8px;
-            color: #666;
         }
 
-        .empty-state-description {
+        .empty-state-subtext {
             font-size: 14px;
-            margin-bottom: 24px;
         }
 
-        /* Responsive */
         @media (max-width: 1024px) {
+            .sidebar {
+                width: 100%;
+                float: none;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+                min-height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
             .table-header,
             .zone-row {
-                grid-template-columns: 1.5fr 1.5fr 1.5fr 100px;
+                grid-template-columns: 40px 1fr 150px 150px 80px 40px;
             }
         }
 
         @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-            }
-
-            .main-content {
-                padding: 16px;
-            }
-
-            .page-header {
+            .header {
                 flex-direction: column;
             }
 
-            .table-header,
-            .zone-row {
-                grid-template-columns: 1fr 1fr 1fr 80px;
-                font-size: 12px;
-            }
-
-            .zone-cell {
-                padding: 12px 8px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .layout {
-                flex-direction: column;
-            }
-
-            .sidebar {
+            .header-right {
                 width: 100%;
-                border-right: none;
-                border-bottom: 1px solid #d0d0d0;
+                justify-content: flex-start;
             }
 
-            .sidebar-item {
-                display: inline-block;
-                padding: 12px 16px;
-            }
-
-            .table-header > div:nth-child(2),
-            .zone-row .zone-cell:nth-child(2) {
+            .table-header {
                 display: none;
             }
 
-            .table-header,
             .zone-row {
-                grid-template-columns: 2fr 1.5fr 80px;
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 16px;
+            }
+
+            .zone-row > div {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .zone-row > div::before {
+                content: attr(data-label);
+                font-weight: 600;
+                font-size: 12px;
+                color: #666;
+                min-width: 100px;
+            }
+
+            .modal-content {
+                width: 95%;
             }
         }
 
-        .hidden-row {
-            display: none;
+        .hidden {
+            display: none !important;
         }
     </style>
 </head>
+
 <script>
 (function (m, a, z, e) {
   var s, t, u, v;
@@ -630,82 +684,78 @@
   m.mazeUniversalSnippetApiKey = e;
 })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', 'bf238bfd-08f0-42c2-bb31-1920516f6f48');
 </script>
+
 <body>
-    <div class="layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
+    <div class="container">
+        <div class="sidebar">
+            <h3>Settings</h3>
             <div class="sidebar-item">Facilities</div>
             <div class="sidebar-item active">Facility zones</div>
             <div class="sidebar-item">Facility categories</div>
-            <div class="sidebar-item">Facility closures</div>
-        </aside>
+        </div>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="breadcrumb">
-                <a href="#">Settings</a> / <a href="#">Facilities</a>
-            </div>
-
-
-            <div class="page-header">
-                <div class="page-title-section">
-                    <h1 class="page-title">Facility zones</h1>
-                    <p class="page-description">
-                        Facility zones ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-                    </p>
+        <div class="main-content">
+            <div class="header">
+                <div class="header-left">
+                    <div class="breadcrumb">Settings / Facilities</div>
+                    <h1>Facility zones</h1>
+                    <p class="description">Facility zones ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
                 </div>
-                <div class="header-actions">
-                    <button class="btn btn-primary" id="addZoneBtn">Add facility zone</button>
-                    <button class="btn btn-secondary" id="currentFacilityBtn">
-                        <span>📍</span>
-                        <span>Current facility</span>
-                    </button>
+                <div class="header-right">
+                    <button class="btn btn-primary" onclick="openAddZoneModal()">Add facility zone</button>
+                    <button class="btn btn-secondary">⚙ Current facility</button>
                 </div>
             </div>
 
-            <!-- Zones Table -->
-            <div class="zones-table">
+            <div id="tableContainer" class="table-container">
                 <div class="table-header">
-                    <div>Zones</div>
-                    <div>
-                        Relations 
-                        <span class="info-icon" id="relationsInfo">i</span>
+                    <div class="table-header-cell"></div>
+                    <div class="table-header-cell">Zones</div>
+                    <div class="table-header-cell">
+                        Relations
+                        <span class="info-icon" onclick="togglePopover(event, 'relations')">ⓘ</span>
                     </div>
-                    <div>
-                        Facility categories 
-                        <span class="info-icon" id="categoriesInfo">i</span>
+                    <div class="table-header-cell">
+                        Facility categories
+                        <span class="info-icon" onclick="togglePopover(event, 'categories')">ⓘ</span>
                     </div>
-                    <div>Color</div>
+                    <div class="table-header-cell">Color</div>
+                    <div class="table-header-cell"></div>
                 </div>
-                <div id="zonesContainer">
-                    <!-- Zones will be rendered here -->
-                </div>
-                <div id="emptyState" class="empty-state" style="display: none;">
-                    <div class="empty-state-icon">📋</div>
-                    <div class="empty-state-title">No facility zones yet</div>
-                    <div class="empty-state-description">Create your first facility zone to get started</div>
-                    <button class="btn btn-primary" onclick="openAddZoneDialog()">Add facility zone</button>
-                </div>
+                <div id="zonesList"></div>
             </div>
-        </main>
+
+            <div id="emptyState" class="empty-state hidden">
+                <div class="empty-state-icon">📋</div>
+                <div class="empty-state-text">No facility zones yet</div>
+                <div class="empty-state-subtext">Click "Add facility zone" to create your first zone</div>
+            </div>
+        </div>
     </div>
 
     <!-- Add/Edit Zone Modal -->
-    <div class="modal-overlay" id="zoneModal">
-        <div class="modal">
+    <div id="zoneModal" class="modal">
+        <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">Add facility zone</h2>
+                <h2 id="modalTitle">Add facility zone</h2>
                 <button class="close-btn" onclick="closeZoneModal()">×</button>
             </div>
             <div class="modal-body">
                 <form id="zoneForm">
+                    <input type="hidden" id="zoneId" value="">
+                    <input type="hidden" id="parentZoneId" value="">
+                    
                     <div class="form-group">
-                        <label class="form-label">Name <span class="required">*</span></label>
-                        <input type="text" class="form-input" id="zoneName" required>
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" id="zoneName" required>
                     </div>
+
                     <div class="form-group">
-                        <label class="form-label">Category</label>
-                        <select class="form-select" id="zoneCategory">
+                        <label>
+                            Category
+                            <span class="info-icon" onclick="togglePopover(event, 'categories')">ⓘ</span>
+                        </label>
+                        <select id="zoneCategory">
                             <option value="">Select category</option>
                             <option value="swimming">Swimming</option>
                             <option value="personal-training">Personal Training</option>
@@ -713,606 +763,723 @@
                             <option value="yoga">Yoga</option>
                         </select>
                     </div>
+
                     <div class="form-group">
-                        <label class="form-label">Parent zone</label>
-                        <select class="form-select" id="zoneParent">
+                        <label>Parent zone</label>
+                        <select id="parentZoneSelect">
                             <option value="">Top-level zone</option>
                         </select>
                     </div>
+
                     <div class="form-group">
-                        <label class="form-label">Relations</label>
-                        <select class="form-select" id="zoneRelation">
-                            <option value="">Add relation</option>
-                        </select>
+                        <label>
+                            Relations
+                            <span class="info-icon" onclick="togglePopover(event, 'relations')">ⓘ</span>
+                        </label>
+                        <div class="multi-select-container">
+                            <div class="multi-select-display" id="relationsDisplay" onclick="toggleRelationsDropdown()">
+                                <span style="color: #999; font-size: 14px;" id="relationsPlaceholder">Select relations</span>
+                            </div>
+                            <div class="multi-select-dropdown" id="relationsDropdown"></div>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label class="form-label">Color</label>
-                        <div class="color-picker-wrapper">
-                            <input type="color" class="color-input" id="zoneColor">
+                        <label>Color</label>
+                        <div class="color-picker-container">
+                            <div class="color-preview" id="colorPreview" onclick="document.getElementById('zoneColor').click()"></div>
+                            <input type="color" id="zoneColor" class="color-input">
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-cancel" onclick="closeZoneModal()">Cancel</button>
-                <button class="btn btn-primary" id="saveZoneBtn">Add zone</button>
+                <button class="btn btn-primary" onclick="saveZone()">Add zone</button>
             </div>
         </div>
     </div>
 
     <!-- Delete Confirmation Modal -->
-    <div class="modal-overlay" id="deleteModal">
-        <div class="modal">
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Delete zone</h2>
+                <h2>Delete zone</h2>
                 <button class="close-btn" onclick="closeDeleteModal()">×</button>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete "<strong id="deleteZoneName"></strong>"?</p>
-                <p style="margin-top: 12px; color: #d32f2f; font-size: 14px;" id="deleteWarning"></p>
+                <p>Are you sure you want to delete "<span id="deleteZoneName"></span>"? This action cannot be undone.</p>
+                <p style="margin-top: 10px; color: #d32f2f; font-size: 14px;" id="deleteWarning"></p>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-cancel" onclick="closeDeleteModal()">Cancel</button>
-                <button class="btn btn-primary" style="background-color: #d32f2f;" id="confirmDeleteBtn">Delete</button>
+                <button class="btn btn-danger" onclick="confirmDelete()">Delete</button>
             </div>
         </div>
     </div>
 
-    <!-- Context Menu -->
-    <div class="context-menu" id="contextMenu">
-        <div class="context-menu-item" onclick="editZone()">Edit zone</div>
-        <div class="context-menu-item danger" onclick="deleteZone()">Delete zone</div>
-    </div>
-
     <!-- Popovers -->
-    <div class="popover" id="relationsPopover">
-<!--        <div class="popover-title">Relations</div>-->
+    <div id="relationsPopover" class="popover">
+        <div class="popover-title">Relations</div>
         <div class="popover-content">
-            The Zone relation describes two or more distinct <b>zones share a similar placement on the same larger terrain</b>.
+            The relation describes two or more distinct zones that share a similar placement within the same larger terrain. This relation influences the booking of facility zones — for example, if the basketball zone is booked, the related zone will not be available for booking.
         </div>
-        <img src="images/relations.png" alt="Relations diagram" class="popover-image">
-        <a href="#">More about zone relation</a>
     </div>
 
-    <div class="popover" id="categoriesPopover">
-<!--        <div class="popover-title">Facility categories</div>-->
+    <div id="categoriesPopover" class="popover">
+        <div class="popover-title">Facility Category</div>
         <div class="popover-content">
-            The Facility Category allows a zone to be used as a <b>cross-facility resource</b> for various <b>Services</b>.
+            Facility Category can be assigned to a zone, allowing that zone to be used as a cross-facility resource for various Services.
         </div>
-        <a href="#">More about facility category</a>
     </div>
 
     <script>
         // Data structure
-        let zones = [
-            {
-                id: 1,
-                name: 'Fitness',
-                category: '',
-                parent: null,
-                relation: null,
-                color: '#a855f7',
-                expanded: true
-            },
-            {
-                id: 2,
-                name: 'Gym Room 1',
-                category: 'personal-training',
-                parent: 1,
-                relation: null,
-                color: '#84cc16',
-                expanded: false
-            },
-            {
-                id: 3,
-                name: 'Boxing room 1',
-                category: 'personal-training',
-                parent: 1,
-                relation: null,
-                color: '#c084fc',
-                expanded: false
-            },
-            {
-                id: 4,
-                name: 'Yoga room 1',
-                category: '',
-                parent: 1,
-                relation: null,
-                color: '#06b6d4',
-                expanded: false
-            },
-            {
-                id: 5,
-                name: 'Swimming Pools',
-                category: '',
-                parent: null,
-                relation: null,
-                color: '#3b82f6',
-                expanded: true
-            },
-            {
-                id: 6,
-                name: 'Pool 1',
-                category: '',
-                parent: 5,
-                relation: null,
-                color: '#94a3b8',
-                expanded: false
-            },
-            {
-                id: 7,
-                name: 'Pool 2',
-                category: '',
-                parent: 5,
-                relation: null,
-                color: '#f59e0b',
-                expanded: true
-            },
-            {
-                id: 8,
-                name: 'Swimming lane 1',
-                category: '',
-                parent: 7,
-                relation: 9,
-                color: '#fde047',
-                expanded: false
-            },
-            {
-                id: 9,
-                name: 'Swimming lane 2',
-                category: '',
-                parent: 7,
-                relation: 8,
-                color: '#ef4444',
-                expanded: false
-            },
-            {
-                id: 10,
-                name: 'Swimming lane 3',
-                category: 'swimming',
-                parent: 7,
-                relation: null,
-                color: '#7f1d1d',
-                expanded: false
-            }
-        ];
+        let zones = [];
+        let expandedZones = new Set();
+        let currentEditingZone = null;
+        let currentDeletingZone = null;
+        let selectedRelations = [];
 
-        let nextId = 11;
-        let editingZoneId = null;
-        let contextMenuZoneId = null;
-        let expandedStates = {};
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            renderZones();
+            
+            // Update color preview when color changes
+            document.getElementById('zoneColor').addEventListener('input', function() {
+                document.getElementById('colorPreview').style.backgroundColor = this.value;
+            });
 
-        const categories = {
-            'swimming': { name: 'Swimming', color: '#ec4899' },
-            'personal-training': { name: 'Personal Training', color: '#f97316' },
-            'parking': { name: 'Parking', color: '#8b5cf6' },
-            'yoga': { name: 'Yoga', color: '#10b981' }
-        };
-
-        // Initialize expanded states
-        zones.forEach(zone => {
-            expandedStates[zone.id] = zone.expanded !== false;
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.multi-select-container')) {
+                    document.getElementById('relationsDropdown').classList.remove('active');
+                }
+                if (!e.target.closest('.info-icon') && !e.target.closest('.popover')) {
+                    closeAllPopovers();
+                }
+                if (!e.target.closest('.context-menu-btn') && !e.target.closest('.context-menu')) {
+                    closeAllContextMenus();
+                }
+            });
         });
+
+        // Load data from localStorage
+        function loadData() {
+            const savedZones = localStorage.getItem('facilityZones');
+            const savedExpanded = localStorage.getItem('expandedZones');
+            
+            if (savedZones) {
+                zones = JSON.parse(savedZones);
+            } else {
+                // Initial demo data
+                zones = [
+                    {
+                        id: 'zone-1',
+                        name: 'Fitness',
+                        category: '',
+                        color: '#a855f7',
+                        parentId: null,
+                        relations: []
+                    },
+                    {
+                        id: 'zone-2',
+                        name: 'Gym room',
+                        category: 'personal-training',
+                        color: '#a0d468',
+                        parentId: 'zone-1',
+                        relations: []
+                    },
+                    {
+                        id: 'zone-3',
+                        name: 'Boxing room',
+                        category: '',
+                        color: '#5f9ea0',
+                        parentId: null,
+                        relations: []
+                    },
+                    {
+                        id: 'zone-4',
+                        name: 'Swimming Pools',
+                        category: '',
+                        color: '#4fc3f7',
+                        parentId: null,
+                        relations: []
+                    },
+                    {
+                        id: 'zone-5',
+                        name: 'Swimming lane 1',
+                        category: '',
+                        color: '#808080',
+                        parentId: 'zone-4',
+                        relations: []
+                    },
+                    {
+                        id: 'zone-6',
+                        name: 'Swimming lane 2',
+                        category: '',
+                        color: '#ffa726',
+                        parentId: 'zone-4',
+                        relations: []
+                    }
+                ];
+                saveData();
+            }
+            
+            if (savedExpanded) {
+                expandedZones = new Set(JSON.parse(savedExpanded));
+            }
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            localStorage.setItem('facilityZones', JSON.stringify(zones));
+            localStorage.setItem('expandedZones', JSON.stringify([...expandedZones]));
+        }
+
+        // Generate random color
+        function generateRandomColor() {
+            const colors = ['#a855f7', '#a0d468', '#5f9ea0', '#4fc3f7', '#808080', '#ffa726', '#ef5350', '#66bb6a', '#42a5f5', '#ab47bc'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Get category display name
+        function getCategoryName(category) {
+            const names = {
+                'swimming': 'Swimming',
+                'personal-training': 'Personal Training',
+                'parking': 'Parking',
+                'yoga': 'Yoga'
+            };
+            return names[category] || category;
+        }
+
+        // Get zone level
+        function getZoneLevel(zoneId) {
+            let level = 0;
+            let currentZone = zones.find(z => z.id === zoneId);
+            
+            while (currentZone && currentZone.parentId) {
+                level++;
+                currentZone = zones.find(z => z.id === currentZone.parentId);
+            }
+            
+            return level;
+        }
+
+        // Get children of a zone
+        function getChildren(parentId) {
+            return zones.filter(z => z.parentId === parentId);
+        }
+
+        // Check if zone has children
+        function hasChildren(zoneId) {
+            return zones.some(z => z.parentId === zoneId);
+        }
+
+        // Get all descendants of a zone
+        function getAllDescendants(zoneId) {
+            let descendants = [];
+            const children = getChildren(zoneId);
+            
+            children.forEach(child => {
+                descendants.push(child);
+                descendants = descendants.concat(getAllDescendants(child.id));
+            });
+            
+            return descendants;
+        }
+
+        // Get siblings (zones at the same level with same parent)
+        function getSiblings(zoneId) {
+            const zone = zones.find(z => z.id === zoneId);
+            if (!zone) return [];
+            
+            return zones.filter(z => z.id !== zoneId && z.parentId === zone.parentId);
+        }
 
         // Render zones
         function renderZones() {
-            const container = document.getElementById('zonesContainer');
+            const container = document.getElementById('zonesList');
             const emptyState = document.getElementById('emptyState');
+            const tableContainer = document.getElementById('tableContainer');
             
             if (zones.length === 0) {
-                container.innerHTML = '';
-                emptyState.style.display = 'block';
+                tableContainer.classList.add('hidden');
+                emptyState.classList.remove('hidden');
                 return;
             }
-
-            emptyState.style.display = 'none';
+            
+            tableContainer.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+            
             container.innerHTML = '';
-
-            const topLevelZones = zones.filter(z => z.parent === null);
+            
+            // Render top-level zones first
+            const topLevelZones = zones.filter(z => !z.parentId);
             topLevelZones.forEach(zone => {
-                renderZone(zone, 0, container);
+                renderZone(zone, container, 0);
             });
         }
 
-        function renderZone(zone, level, container) {
+        // Render a single zone and its children
+        function renderZone(zone, container, level) {
+            const children = getChildren(zone.id);
+            const isExpanded = expandedZones.has(zone.id);
+            const hasChild = children.length > 0;
+            
             const row = document.createElement('div');
-            row.className = 'zone-row';
+            row.className = `zone-row level-${level}`;
             row.dataset.zoneId = zone.id;
-            row.dataset.level = level;
-
-            const children = zones.filter(z => z.parent === zone.id);
-            const hasChildren = children.length > 0;
-            const isExpanded = expandedStates[zone.id];
-
-            // Zones column
-            const zonesCell = document.createElement('div');
-            zonesCell.className = `zone-cell zone-name-cell ${level > 0 ? `indent-${level}` : ''}`;
             
-            const toggleBtn = document.createElement('button');
-            toggleBtn.className = `toggle-btn ${!hasChildren ? 'hidden' : ''}`;
-            toggleBtn.innerHTML = isExpanded ? '▼' : '▶';
-            toggleBtn.onclick = () => toggleZone(zone.id);
+            // Toggle button
+            const toggleCell = document.createElement('div');
+            if (hasChild) {
+                toggleCell.innerHTML = `<button class="toggle-btn" onclick="toggleZone('${zone.id}')">${isExpanded ? '▼' : '▶'}</button>`;
+            }
+            row.appendChild(toggleCell);
             
-            const nameSpan = document.createElement('span');
-            nameSpan.className = 'zone-name';
-            nameSpan.textContent = zone.name;
+            // Zone name with add button
+            const nameCell = document.createElement('div');
+            nameCell.className = 'zone-name';
+            nameCell.innerHTML = `
+                <span>${zone.name}</span>
+                ${level < 2 ? `<button class="add-zone-btn" onclick="openAddSubZoneModal('${zone.id}')">+</button>` : ''}
+            `;
+            row.appendChild(nameCell);
             
-            const addBtn = document.createElement('button');
-            addBtn.className = 'add-zone-btn';
-            addBtn.innerHTML = '+';
-            addBtn.onclick = () => openAddZoneDialog(zone.id);
-            
-            zonesCell.appendChild(toggleBtn);
-            zonesCell.appendChild(nameSpan);
-            zonesCell.appendChild(addBtn);
-
-            // Relations column
+            // Relations
             const relationsCell = document.createElement('div');
-            relationsCell.className = 'zone-cell';
-            if (zone.relation) {
-                const relatedZone = zones.find(z => z.id === zone.relation);
-                if (relatedZone) {
-                    const badge = document.createElement('span');
-                    badge.className = 'relation-badge';
-                    badge.textContent = relatedZone.name;
-                    relationsCell.appendChild(badge);
-                }
+            relationsCell.className = 'relations-cell';
+            relationsCell.setAttribute('data-label', 'Relations:');
+            if (zone.relations && zone.relations.length > 0) {
+                zone.relations.forEach(relId => {
+                    const relZone = zones.find(z => z.id === relId);
+                    if (relZone) {
+                        const badge = document.createElement('span');
+                        badge.className = 'badge';
+                        badge.textContent = relZone.name;
+                        relationsCell.appendChild(badge);
+                    }
+                });
             }
-
-            // Category column
-            const categoryCell = document.createElement('div');
-            categoryCell.className = 'zone-cell';
-            if (zone.category && categories[zone.category]) {
-                const badge = document.createElement('span');
-                badge.className = 'category-badge';
-                
-                const dot = document.createElement('span');
-                dot.className = 'category-dot';
-                dot.style.backgroundColor = categories[zone.category].color;
-                
-                badge.appendChild(dot);
-                badge.appendChild(document.createTextNode(categories[zone.category].name));
-                categoryCell.appendChild(badge);
-            }
-
-            // Color column
-            const colorCell = document.createElement('div');
-            colorCell.className = 'zone-cell';
-            
-            const colorCircle = document.createElement('div');
-            colorCircle.className = 'color-circle';
-            colorCircle.style.backgroundColor = zone.color;
-            
-            const menuBtn = document.createElement('button');
-            menuBtn.className = 'menu-btn';
-            menuBtn.innerHTML = '⋮';
-            menuBtn.onclick = (e) => showContextMenu(e, zone.id);
-            
-            colorCell.appendChild(colorCircle);
-            colorCell.appendChild(menuBtn);
-
-            row.appendChild(zonesCell);
             row.appendChild(relationsCell);
+            
+            // Category
+            const categoryCell = document.createElement('div');
+            categoryCell.setAttribute('data-label', 'Category:');
+            if (zone.category) {
+                categoryCell.innerHTML = `<span class="category-badge category-${zone.category}">${getCategoryName(zone.category)}</span>`;
+            }
             row.appendChild(categoryCell);
+            
+            // Color
+            const colorCell = document.createElement('div');
+            colorCell.setAttribute('data-label', 'Color:');
+            colorCell.innerHTML = `<div class="color-indicator" style="background-color: ${zone.color}"></div>`;
             row.appendChild(colorCell);
-
-            if (!isExpanded) {
-                row.classList.add('parent-collapsed');
-            }
-
+            
+            // Context menu
+            const menuCell = document.createElement('div');
+            menuCell.style.position = 'relative';
+            menuCell.innerHTML = `
+                <button class="context-menu-btn" onclick="toggleContextMenu(event, '${zone.id}')">⋮</button>
+                <div class="context-menu" id="contextMenu-${zone.id}">
+                    <div class="context-menu-item" onclick="editZone('${zone.id}')">Edit zone</div>
+                    <div class="context-menu-item danger" onclick="deleteZone('${zone.id}')">Delete zone</div>
+                </div>
+            `;
+            row.appendChild(menuCell);
+            
             container.appendChild(row);
-
-            // Render children
-            if (hasChildren && isExpanded) {
+            
+            // Render children if expanded
+            if (isExpanded && hasChild) {
                 children.forEach(child => {
-                    renderZone(child, level + 1, container);
-                });
-            } else if (hasChildren && !isExpanded) {
-                // Mark children as hidden
-                children.forEach(child => {
-                    markChildrenHidden(child);
+                    renderZone(child, container, level + 1);
                 });
             }
         }
 
-        function markChildrenHidden(zone) {
-            const children = zones.filter(z => z.parent === zone.id);
-            children.forEach(child => {
-                markChildrenHidden(child);
-            });
-        }
-
+        // Toggle zone expansion
         function toggleZone(zoneId) {
-            expandedStates[zoneId] = !expandedStates[zoneId];
+            if (expandedZones.has(zoneId)) {
+                expandedZones.delete(zoneId);
+            } else {
+                expandedZones.add(zoneId);
+            }
+            saveData();
             renderZones();
         }
 
-        // Context menu
-        function showContextMenu(e, zoneId) {
-            e.stopPropagation();
-            const menu = document.getElementById('contextMenu');
-            contextMenuZoneId = zoneId;
-            
-            menu.style.left = e.pageX + 'px';
-            menu.style.top = e.pageY + 'px';
-            menu.classList.add('active');
-        }
-
-        function hideContextMenu() {
-            document.getElementById('contextMenu').classList.remove('active');
-        }
-
-        document.addEventListener('click', hideContextMenu);
-
-        // Zone operations
-        function openAddZoneDialog(parentId = null) {
-            editingZoneId = null;
+        // Open add zone modal
+        function openAddZoneModal() {
+            currentEditingZone = null;
             document.getElementById('modalTitle').textContent = 'Add facility zone';
-            document.getElementById('saveZoneBtn').textContent = 'Add zone';
             document.getElementById('zoneForm').reset();
+            document.getElementById('zoneId').value = '';
+            document.getElementById('parentZoneId').value = '';
             
-            // Set random color
-            document.getElementById('zoneColor').value = getRandomColor();
+            const randomColor = generateRandomColor();
+            document.getElementById('zoneColor').value = randomColor;
+            document.getElementById('colorPreview').style.backgroundColor = randomColor;
             
-            // Update parent selector
-            updateParentSelector(parentId);
+            selectedRelations = [];
+            updateParentZoneOptions();
+            updateRelationsDisplay();
             
-            // Update relations selector
-            updateRelationsSelector(null, parentId);
-            
-            if (parentId) {
-                document.getElementById('zoneParent').value = parentId;
-            }
-            
+            document.querySelector('.modal-footer .btn-primary').textContent = 'Add zone';
             document.getElementById('zoneModal').classList.add('active');
         }
 
-        function editZone() {
-            hideContextMenu();
-            const zone = zones.find(z => z.id === contextMenuZoneId);
-            if (!zone) return;
-
-            editingZoneId = zone.id;
-            document.getElementById('modalTitle').textContent = 'Edit zone';
-            document.getElementById('saveZoneBtn').textContent = 'Save changes';
+        // Open add sub-zone modal
+        function openAddSubZoneModal(parentId) {
+            currentEditingZone = null;
+            document.getElementById('modalTitle').textContent = 'Add facility zone';
+            document.getElementById('zoneForm').reset();
+            document.getElementById('zoneId').value = '';
+            document.getElementById('parentZoneId').value = parentId;
             
-            document.getElementById('zoneName').value = zone.name;
-            document.getElementById('zoneCategory').value = zone.category || '';
-            document.getElementById('zoneColor').value = zone.color;
+            const randomColor = generateRandomColor();
+            document.getElementById('zoneColor').value = randomColor;
+            document.getElementById('colorPreview').style.backgroundColor = randomColor;
             
-            updateParentSelector(zone.parent, zone.id);
-            document.getElementById('zoneParent').value = zone.parent || '';
+            selectedRelations = [];
+            updateParentZoneOptions(parentId);
+            updateRelationsDisplay();
             
-            updateRelationsSelector(zone.relation, zone.parent, zone.id);
-            document.getElementById('zoneRelation').value = zone.relation || '';
-            
+            document.querySelector('.modal-footer .btn-primary').textContent = 'Add zone';
             document.getElementById('zoneModal').classList.add('active');
         }
 
-        function closeZoneModal() {
-            document.getElementById('zoneModal').classList.remove('active');
-            editingZoneId = null;
-        }
-
-        function updateParentSelector(selectedParentId = null, excludeZoneId = null) {
-            const select = document.getElementById('zoneParent');
+        // Update parent zone options
+        function updateParentZoneOptions(selectedParentId = null) {
+            const select = document.getElementById('parentZoneSelect');
+            const currentZoneId = document.getElementById('zoneId').value;
+            
             select.innerHTML = '<option value="">Top-level zone</option>';
             
-            function addZoneOption(zone, level = 0) {
-                if (excludeZoneId && (zone.id === excludeZoneId || isDescendant(zone.id, excludeZoneId))) {
-                    return;
+            zones.forEach(zone => {
+                // Don't allow selecting the current zone or its descendants as parent
+                if (currentZoneId) {
+                    const descendants = getAllDescendants(currentZoneId);
+                    if (zone.id === currentZoneId || descendants.some(d => d.id === zone.id)) {
+                        return;
+                    }
                 }
                 
-                const option = document.createElement('option');
-                option.value = zone.id;
-                option.textContent = '  '.repeat(level) + zone.name;
-                select.appendChild(option);
-                
-                const children = zones.filter(z => z.parent === zone.id);
-                children.forEach(child => addZoneOption(child, level + 1));
-            }
+                // Only allow up to 2 levels of nesting
+                const level = getZoneLevel(zone.id);
+                if (level < 2) {
+                    const indent = '  '.repeat(level);
+                    const option = document.createElement('option');
+                    option.value = zone.id;
+                    option.textContent = indent + zone.name;
+                    select.appendChild(option);
+                }
+            });
             
-            const topLevelZones = zones.filter(z => z.parent === null);
-            topLevelZones.forEach(zone => addZoneOption(zone));
+            if (selectedParentId) {
+                select.value = selectedParentId;
+            }
         }
 
-        function isDescendant(zoneId, ancestorId) {
-            let zone = zones.find(z => z.id === zoneId);
-            while (zone && zone.parent) {
-                if (zone.parent === ancestorId) return true;
-                zone = zones.find(z => z.id === zone.parent);
-            }
-            return false;
-        }
-
-        function updateRelationsSelector(selectedRelation = null, parentId = null, excludeZoneId = null) {
-            const select = document.getElementById('zoneRelation');
-            select.innerHTML = '<option value="">Add relation</option>';
+        // Update relations dropdown
+        function updateRelationsDropdown() {
+            const dropdown = document.getElementById('relationsDropdown');
+            const currentZoneId = document.getElementById('zoneId').value;
+            const parentId = document.getElementById('parentZoneSelect').value;
             
-            // Get zones at the same level
-            let eligibleZones;
-            if (parentId) {
-                eligibleZones = zones.filter(z => z.parent === parentId && z.id !== excludeZoneId && !z.relation);
+            dropdown.innerHTML = '';
+            
+            // Get available zones (siblings only)
+            let availableZones = [];
+            if (currentZoneId) {
+                availableZones = getSiblings(currentZoneId);
+            } else if (parentId) {
+                availableZones = zones.filter(z => z.parentId === parentId);
             } else {
-                eligibleZones = zones.filter(z => z.parent === null && z.id !== excludeZoneId && !z.relation);
+                availableZones = zones.filter(z => !z.parentId);
             }
             
-            eligibleZones.forEach(zone => {
-                const option = document.createElement('option');
-                option.value = zone.id;
+            if (availableZones.length === 0) {
+                const option = document.createElement('div');
+                option.className = 'multi-select-option disabled';
+                option.textContent = 'No zones available';
+                dropdown.appendChild(option);
+                return;
+            }
+            
+            availableZones.forEach(zone => {
+                const option = document.createElement('div');
+                option.className = 'multi-select-option';
                 option.textContent = zone.name;
-                select.appendChild(option);
+                option.onclick = () => toggleRelationSelection(zone.id);
+                
+                if (selectedRelations.includes(zone.id)) {
+                    option.style.backgroundColor = '#e3f2fd';
+                }
+                
+                dropdown.appendChild(option);
             });
         }
 
-        document.getElementById('zoneParent').addEventListener('change', function() {
-            const parentId = this.value ? parseInt(this.value) : null;
-            updateRelationsSelector(null, parentId, editingZoneId);
+        // Toggle relations dropdown
+        function toggleRelationsDropdown() {
+            const dropdown = document.getElementById('relationsDropdown');
+            updateRelationsDropdown();
+            dropdown.classList.toggle('active');
+        }
+
+        // Toggle relation selection
+        function toggleRelationSelection(zoneId) {
+            const index = selectedRelations.indexOf(zoneId);
+            if (index > -1) {
+                selectedRelations.splice(index, 1);
+            } else {
+                selectedRelations.push(zoneId);
+            }
+            updateRelationsDisplay();
+            updateRelationsDropdown();
+        }
+
+        // Update relations display
+        function updateRelationsDisplay() {
+            const display = document.getElementById('relationsDisplay');
+            const placeholder = document.getElementById('relationsPlaceholder');
+            
+            display.innerHTML = '';
+            
+            if (selectedRelations.length === 0) {
+                const ph = document.createElement('span');
+                ph.id = 'relationsPlaceholder';
+                ph.style.color = '#999';
+                ph.style.fontSize = '14px';
+                ph.textContent = 'Select relations';
+                display.appendChild(ph);
+            } else {
+                selectedRelations.forEach(relId => {
+                    const zone = zones.find(z => z.id === relId);
+                    if (zone) {
+                        const tag = document.createElement('div');
+                        tag.className = 'selected-tag';
+                        tag.innerHTML = `
+                            ${zone.name}
+                            <span class="remove-tag" onclick="event.stopPropagation(); toggleRelationSelection('${relId}')">×</span>
+                        `;
+                        display.appendChild(tag);
+                    }
+                });
+            }
+        }
+
+        // Watch for parent zone changes
+        document.addEventListener('DOMContentLoaded', function() {
+            const parentSelect = document.getElementById('parentZoneSelect');
+            if (parentSelect) {
+                parentSelect.addEventListener('change', function() {
+                    selectedRelations = [];
+                    updateRelationsDisplay();
+                });
+            }
         });
 
-        document.getElementById('saveZoneBtn').addEventListener('click', function() {
+        // Close zone modal
+        function closeZoneModal() {
+            document.getElementById('zoneModal').classList.remove('active');
+            selectedRelations = [];
+        }
+
+        // Save zone
+        function saveZone() {
             const name = document.getElementById('zoneName').value.trim();
+            const category = document.getElementById('zoneCategory').value;
+            const parentId = document.getElementById('parentZoneSelect').value || null;
+            const color = document.getElementById('zoneColor').value;
+            const zoneId = document.getElementById('zoneId').value;
+            
             if (!name) {
                 alert('Please enter a zone name');
                 return;
             }
-
-            const category = document.getElementById('zoneCategory').value;
-            const parent = document.getElementById('zoneParent').value;
-            const relation = document.getElementById('zoneRelation').value;
-            const color = document.getElementById('zoneColor').value;
-
-            if (editingZoneId) {
+            
+            if (zoneId) {
                 // Edit existing zone
-                const zone = zones.find(z => z.id === editingZoneId);
-                const oldRelation = zone.relation;
-                
-                zone.name = name;
-                zone.category = category;
-                zone.parent = parent ? parseInt(parent) : null;
-                zone.color = color;
-                
-                // Handle relation changes
-                if (oldRelation && oldRelation !== relation) {
-                    // Remove old relation
-                    const oldRelatedZone = zones.find(z => z.id === oldRelation);
-                    if (oldRelatedZone) {
-                        oldRelatedZone.relation = null;
-                    }
-                }
-                
-                if (relation) {
-                    zone.relation = parseInt(relation);
-                    const relatedZone = zones.find(z => z.id === parseInt(relation));
-                    if (relatedZone) {
-                        relatedZone.relation = zone.id;
-                    }
-                } else {
-                    zone.relation = null;
+                const zone = zones.find(z => z.id === zoneId);
+                if (zone) {
+                    // Remove old relations
+                    zone.relations.forEach(oldRelId => {
+                        const relZone = zones.find(z => z.id === oldRelId);
+                        if (relZone) {
+                            relZone.relations = relZone.relations.filter(id => id !== zoneId);
+                        }
+                    });
+                    
+                    zone.name = name;
+                    zone.category = category;
+                    zone.color = color;
+                    zone.relations = [...selectedRelations];
+                    
+                    // Add new relations
+                    selectedRelations.forEach(relId => {
+                        const relZone = zones.find(z => z.id === relId);
+                        if (relZone && !relZone.relations.includes(zoneId)) {
+                            relZone.relations.push(zoneId);
+                        }
+                    });
                 }
             } else {
                 // Add new zone
                 const newZone = {
-                    id: nextId++,
+                    id: 'zone-' + Date.now(),
                     name: name,
                     category: category,
-                    parent: parent ? parseInt(parent) : null,
-                    relation: relation ? parseInt(relation) : null,
                     color: color,
-                    expanded: true
+                    parentId: parentId,
+                    relations: [...selectedRelations]
                 };
                 
-                if (parent) {
-                    // Insert after parent's children
-                    const parentZone = zones.find(z => z.id === parseInt(parent));
-                    const siblings = zones.filter(z => z.parent === parseInt(parent));
-                    const parentIndex = zones.indexOf(parentZone);
-                    zones.splice(parentIndex + siblings.length + 1, 0, newZone);
-                } else {
-                    // Add to top
-                    zones.unshift(newZone);
-                }
+                zones.push(newZone);
                 
-                expandedStates[newZone.id] = true;
-                
-                // Set bidirectional relation
-                if (relation) {
-                    const relatedZone = zones.find(z => z.id === parseInt(relation));
-                    if (relatedZone) {
-                        relatedZone.relation = newZone.id;
+                // Add reciprocal relations
+                selectedRelations.forEach(relId => {
+                    const relZone = zones.find(z => z.id === relId);
+                    if (relZone) {
+                        relZone.relations.push(newZone.id);
                     }
+                });
+                
+                // Expand parent if adding a sub-zone
+                if (parentId) {
+                    expandedZones.add(parentId);
                 }
             }
-
+            
+            saveData();
             renderZones();
             closeZoneModal();
-        });
+        }
 
-        function deleteZone() {
-            hideContextMenu();
-            const zone = zones.find(z => z.id === contextMenuZoneId);
+        // Edit zone
+        function editZone(zoneId) {
+            closeAllContextMenus();
+            
+            const zone = zones.find(z => z.id === zoneId);
             if (!zone) return;
+            
+            currentEditingZone = zone;
+            
+            document.getElementById('modalTitle').textContent = 'Edit zone';
+            document.getElementById('zoneId').value = zone.id;
+            document.getElementById('zoneName').value = zone.name;
+            document.getElementById('zoneCategory').value = zone.category || '';
+            document.getElementById('zoneColor').value = zone.color;
+            document.getElementById('colorPreview').style.backgroundColor = zone.color;
+            
+            selectedRelations = [...(zone.relations || [])];
+            
+            updateParentZoneOptions(zone.parentId);
+            document.getElementById('parentZoneSelect').value = zone.parentId || '';
+            updateRelationsDisplay();
+            
+            document.querySelector('.modal-footer .btn-primary').textContent = 'Save changes';
+            document.getElementById('zoneModal').classList.add('active');
+        }
 
+        // Delete zone
+        function deleteZone(zoneId) {
+            closeAllContextMenus();
+            
+            const zone = zones.find(z => z.id === zoneId);
+            if (!zone) return;
+            
+            currentDeletingZone = zoneId;
+            
             document.getElementById('deleteZoneName').textContent = zone.name;
             
-            const children = zones.filter(z => z.parent === zone.id);
-            const warningEl = document.getElementById('deleteWarning');
+            const children = getAllDescendants(zoneId);
+            const warning = document.getElementById('deleteWarning');
+            
             if (children.length > 0) {
-                warningEl.textContent = `This will also delete ${children.length} child zone${children.length > 1 ? 's' : ''}.`;
+                warning.textContent = `This will also delete ${children.length} sub-zone${children.length > 1 ? 's' : ''}.`;
             } else {
-                warningEl.textContent = '';
+                warning.textContent = '';
             }
             
             document.getElementById('deleteModal').classList.add('active');
         }
 
+        // Close delete modal
         function closeDeleteModal() {
             document.getElementById('deleteModal').classList.remove('active');
+            currentDeletingZone = null;
         }
 
-        document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
-            const zone = zones.find(z => z.id === contextMenuZoneId);
+        // Confirm delete
+        function confirmDelete() {
+            if (!currentDeletingZone) return;
+            
+            const zone = zones.find(z => z.id === currentDeletingZone);
             if (!zone) return;
-
-            // Remove relation from related zone
-            if (zone.relation) {
-                const relatedZone = zones.find(z => z.id === zone.relation);
-                if (relatedZone) {
-                    relatedZone.relation = null;
+            
+            // Get all zones to delete (including descendants)
+            const zonesToDelete = [zone, ...getAllDescendants(currentDeletingZone)];
+            const zoneIdsToDelete = zonesToDelete.map(z => z.id);
+            
+            // Remove relations to these zones
+            zones.forEach(z => {
+                if (z.relations) {
+                    z.relations = z.relations.filter(relId => !zoneIdsToDelete.includes(relId));
                 }
-            }
-
-            // Remove zone and all descendants
-            function removeZoneAndChildren(zoneId) {
-                const children = zones.filter(z => z.parent === zoneId);
-                children.forEach(child => removeZoneAndChildren(child.id));
-                zones = zones.filter(z => z.id !== zoneId);
-            }
-
-            removeZoneAndChildren(zone.id);
+            });
+            
+            // Remove the zones
+            zones = zones.filter(z => !zoneIdsToDelete.includes(z.id));
+            
+            // Remove from expanded set
+            zoneIdsToDelete.forEach(id => expandedZones.delete(id));
+            
+            saveData();
             renderZones();
             closeDeleteModal();
-        });
+        }
 
-        // Popovers
-        function showPopover(e, popoverId) {
-            e.stopPropagation();
-            const popover = document.getElementById(popoverId);
-            const rect = e.target.getBoundingClientRect();
+        // Toggle context menu
+        function toggleContextMenu(event, zoneId) {
+            event.stopPropagation();
+            closeAllContextMenus();
             
-            popover.style.left = (rect.left - 160) + 'px';
-            popover.style.top = (rect.bottom + 8) + 'px';
+            const menu = document.getElementById(`contextMenu-${zoneId}`);
+            menu.classList.add('active');
+        }
+
+        // Close all context menus
+        function closeAllContextMenus() {
+            document.querySelectorAll('.context-menu').forEach(menu => {
+                menu.classList.remove('active');
+            });
+        }
+
+        // Toggle popover
+        function togglePopover(event, type) {
+            event.stopPropagation();
+            closeAllPopovers();
+            
+            const popover = document.getElementById(type + 'Popover');
+            const rect = event.target.getBoundingClientRect();
+            
+            popover.style.top = (rect.bottom + window.scrollY + 5) + 'px';
+            popover.style.left = (rect.left + window.scrollX - 140) + 'px';
             popover.classList.add('active');
         }
 
-        function hidePopovers() {
-            document.querySelectorAll('.popover').forEach(p => p.classList.remove('active'));
-        }
-
-        document.getElementById('relationsInfo').addEventListener('click', (e) => showPopover(e, 'relationsPopover'));
-        document.getElementById('categoriesInfo').addEventListener('click', (e) => showPopover(e, 'categoriesPopover'));
-        document.addEventListener('click', hidePopovers);
-
-        // Utility functions
-        function getRandomColor() {
-            const colors = ['#a855f7', '#84cc16', '#c084fc', '#06b6d4', '#3b82f6', '#94a3b8', '#f59e0b', '#fde047', '#ef4444', '#7f1d1d', '#ec4899', '#f97316', '#8b5cf6', '#10b981'];
-            return colors[Math.floor(Math.random() * colors.length)];
-        }
-
-        // Event listeners
-        document.getElementById('addZoneBtn').addEventListener('click', () => openAddZoneDialog());
-
-        // Close modals on overlay click
-        document.querySelectorAll('.modal-overlay').forEach(overlay => {
-            overlay.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.remove('active');
-                }
+        // Close all popovers
+        function closeAllPopovers() {
+            document.querySelectorAll('.popover').forEach(popover => {
+                popover.classList.remove('active');
             });
-        });
-
-        // Initial render
-        renderZones();
+        }
     </script>
 </body>
 </html>
