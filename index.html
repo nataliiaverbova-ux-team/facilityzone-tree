@@ -65,7 +65,7 @@
         .header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 20px;
             flex-wrap: wrap;
             gap: 20px;
@@ -145,7 +145,7 @@
         .table-container {
             border: 1px solid #e0e0e0;
             border-radius: 4px;
-            overflow: hidden;
+           
         }
 
         .table-header {
@@ -157,7 +157,6 @@
             font-weight: 600;
             font-size: 13px;
             color: #666;
-            text-transform: uppercase;
         }
 
         .table-header-cell {
@@ -242,8 +241,8 @@
             padding: 4px 8px;
             border-radius: 12px;
             font-size: 12px;
-            background: #e3f2fd;
-            color: #1976d2;
+            background: #E3E4E8;
+            color: #2D3648;
             display: inline-block;
         }
 
@@ -435,8 +434,8 @@
             border-radius: 50%;
             background: #666;
             color: white;
-            font-size: 11px;
-            cursor: help;
+            font-size: 12px;
+            cursor: pointer;
             margin-left: 4px;
             position: relative;
         }
@@ -452,13 +451,15 @@
             height: 40px;
             border-radius: 4px;
             border: 2px solid #e0e0e0;
-            cursor: pointer;
+            display: none;
         }
 
         .color-input {
-            width: 60px !important;
-            height: 40px;
+            width: 60px!important;
+            height: 60px;
             border: none;
+            cursor: pointer;
+            padding: 0px!important;
             cursor: pointer;
         }
 
@@ -551,8 +552,8 @@
             border-radius: 4px;
             padding: 16px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-            z-index: 1000;
-            max-width: 300px;
+            z-index: 3000;
+            max-width: 340px;
             display: none;
         }
 
@@ -567,9 +568,14 @@
         }
 
         .popover-content {
-            font-size: 13px;
-            line-height: 1.5;
+            font-size: 14px;
+            line-height: 1.6;
             color: #666;
+            
+        }
+        .popover img {
+            margin-top: 16px;
+            width: 100%;
         }
 
         .empty-state {
@@ -688,8 +694,7 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <h3>Settings</h3>
-            <div class="sidebar-item">Facilities</div>
+            <h3>Facilities</h3>
             <div class="sidebar-item active">Facility zones</div>
             <div class="sidebar-item">Facility categories</div>
         </div>
@@ -703,7 +708,7 @@
                 </div>
                 <div class="header-right">
                     <button class="btn btn-primary" onclick="openAddZoneModal()">Add facility zone</button>
-                    <button class="btn btn-secondary">⚙ Current facility</button>
+                    <button class="btn btn-secondary">Current facility</button>
                 </div>
             </div>
 
@@ -713,11 +718,11 @@
                     <div class="table-header-cell">Zones</div>
                     <div class="table-header-cell">
                         Relations
-                        <span class="info-icon" onclick="togglePopover(event, 'relations')">ⓘ</span>
+                        <span class="info-icon" onclick="showDescription(event, 'relations')">i</span>
                     </div>
                     <div class="table-header-cell">
                         Facility categories
-                        <span class="info-icon" onclick="togglePopover(event, 'categories')">ⓘ</span>
+                        <span class="info-icon" onclick="showDescription(event, 'categories')">i</span>
                     </div>
                     <div class="table-header-cell">Color</div>
                     <div class="table-header-cell"></div>
@@ -753,7 +758,7 @@
                     <div class="form-group">
                         <label>
                             Category
-                            <span class="info-icon" onclick="togglePopover(event, 'categories')">ⓘ</span>
+                            <span class="info-icon" onclick="showDescription(event, 'categories')">i</span>
                         </label>
                         <select id="zoneCategory">
                             <option value="">Select category</option>
@@ -774,7 +779,7 @@
                     <div class="form-group">
                         <label>
                             Relations
-                            <span class="info-icon" onclick="togglePopover(event, 'relations')">ⓘ</span>
+                            <span class="info-icon" onclick="showDescription(event, 'relations')">i</span>
                         </label>
                         <div class="multi-select-container">
                             <div class="multi-select-display" id="relationsDisplay" onclick="toggleRelationsDropdown()">
@@ -820,16 +825,17 @@
 
     <!-- Popovers -->
     <div id="relationsPopover" class="popover">
-        <div class="popover-title">Relations</div>
+<!--        <div class="popover-title">Relations</div>-->
         <div class="popover-content">
-            The relation describes two or more distinct zones that share a similar placement within the same larger terrain. This relation influences the booking of facility zones — for example, if the basketball zone is booked, the related zone will not be available for booking.
+            The relation describes two or more distinct zones that share <b>a similar placement within the same larger terrain.</b> This relation influences the booking of facility zones — for example, if the basketball zone is booked, the related zone will not be available for booking.
         </div>
+        <img src="images/relations.png" alt="The relation zones">
     </div>
 
     <div id="categoriesPopover" class="popover">
-        <div class="popover-title">Facility Category</div>
+<!--        <div class="popover-title">Facility Category</div>-->
         <div class="popover-content">
-            Facility Category can be assigned to a zone, allowing that zone to be used as a cross-facility resource for various Services.
+            A Facility Category can be assigned to a zone, <b>allowing that zone to be linked to various Services</b> as a cross-facility resource.
         </div>
     </div>
 
@@ -1462,7 +1468,7 @@
         }
 
         // Toggle popover
-        function togglePopover(event, type) {
+        function showDescription(event, type) {
             event.stopPropagation();
             closeAllPopovers();
             
